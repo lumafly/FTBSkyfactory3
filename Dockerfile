@@ -17,7 +17,8 @@ RUN mkdir -p /minecraft/backups
 RUN curl -SLO https://media.forgecdn.net/files/2787/18/SkyFactory_4_Server_4.1.0.zip
 RUN unzip SkyFactory_4_Server_4.1.0.zip
 RUN echo "eula=true" > /minecraft/eula.txt
-RUN chmod u+x *.sh
+RUN ls
+RUN chmod u+x /minecraft/*.sh
 RUN echo "[]" > /minecraft/cfg/ops.json
 RUN echo "[]" > /minecraft/cfg/whitelist.json
 RUN echo "[]" > /minecraft/cfg/banned-ips.json
