@@ -1,3 +1,2 @@
-# FTBSkyfactory3
+# Sky Factory 4
 
-## Sky factory 3 Ver 3.0.15
