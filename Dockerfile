@@ -16,7 +16,6 @@ RUN adduser -D minecraft && \
     mkdir -p /minecraft/backups &&\
     curl -SLO https://media.forgecdn.net/files/2787/18/SkyFactory_4_Server_4.1.0.zip  && \
     unzip SkyFactory_4_Server_4.1.0.zip && \
-    chmod u+x *.sh && \
     echo "eula=true" > /minecraft/eula.txt && \
     echo "[]" > /minecraft/cfg/ops.json && \
     echo "[]" > /minecraft/cfg/whitelist.json && \
