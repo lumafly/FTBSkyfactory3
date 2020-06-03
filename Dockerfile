@@ -9,27 +9,27 @@ USER root
 
 COPY ./settings-local.sh /minecraft/cfg/settings-local.sh
 
-RUN adduser -D minecraft && \
-    apk --no-cache add curl wget && \
-    mkdir -p /minecraft/world && \
-    mkdir -p /minecraft/cfg && \
-    mkdir -p /minecraft/backups &&\
-    curl -SLO https://media.forgecdn.net/files/2787/18/SkyFactory_4_Server_4.1.0.zip  && \
-    unzip SkyFactory_4_Server_4.1.0.zip && \
-    echo "eula=true" > /minecraft/eula.txt && \
-    echo "[]" > /minecraft/cfg/ops.json && \
-    echo "[]" > /minecraft/cfg/whitelist.json && \
-    echo "[]" > /minecraft/cfg/banned-ips.json && \
-    echo "[]" > /minecraft/cfg/banned-players.json && \
-    echo "[]" > /minecraft/cfg/server.properties && \
-    ln -s /minecraft/cfg/ops.json /minecraft/ops.json && \
-    ln -s /minecraft/cfg/whitelist.json /minecraft/whitelist.json && \
-    ln -s /minecraft/cfg/banned-ips.json /minecraft/banned-ips.json && \
-    ln -s /minecraft/cfg/banned-players.json /minecraft/banned-players.json && \
-    ln -s /minecraft/cfg/server.properties /minecraft/server.properties && \
-    ln -s /minecraft/cfg/settings-local.sh /minecraft/settings-local.sh && \
-
-    chown -R minecraft:minecraft /minecraft
+RUN adduser -D minecraft
+RUN apk --no-cache add curl wget
+RUN mkdir -p /minecraft/world
+RUN mkdir -p /minecraft/cfg
+RUN mkdir -p /minecraft/backups
+RUN curl -SLO https://media.forgecdn.net/files/2787/18/SkyFactory_4_Server_4.1.0.zip
+RUN unzip SkyFactory_4_Server_4.1.0.zip
+RUN echo "eula=true" > /minecraft/eula.txt
+RUN chmod u+x *.sh
+RUN echo "[]" > /minecraft/cfg/ops.json
+RUN echo "[]" > /minecraft/cfg/whitelist.json
+RUN echo "[]" > /minecraft/cfg/banned-ips.json
+RUN echo "[]" > /minecraft/cfg/banned-players.json
+RUN echo "[]" > /minecraft/cfg/server.properties
+RUN ln -s /minecraft/cfg/ops.json /minecraft/ops.json
+RUN ln -s /minecraft/cfg/whitelist.json /minecraft/whitelist.json
+RUN ln -s /minecraft/cfg/banned-ips.json /minecraft/banned-ips.json
+RUN ln -s /minecraft/cfg/banned-players.json /minecraft/banned-players.json
+RUN ln -s /minecraft/cfg/server.properties /minecraft/server.properties
+RUN ln -s /minecraft/cfg/settings-local.sh /minecraft/settings-local.sh
+RUN chown -R minecraft:minecraft /minecraft
 
 USER minecraft
 
