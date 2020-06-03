@@ -24,12 +24,12 @@ RUN echo "[]" > /minecraft/cfg/ops.json
 RUN echo "[]" > /minecraft/cfg/whitelist.json
 RUN echo "[]" > /minecraft/cfg/banned-ips.json
 RUN echo "[]" > /minecraft/cfg/banned-players.json
-RUN echo "[]" > /minecraft/cfg/server.properties
+#RUN echo "[]" > /minecraft/cfg/server.properties
 RUN ln -s /minecraft/cfg/ops.json /minecraft/ops.json
 RUN ln -s /minecraft/cfg/whitelist.json /minecraft/whitelist.json
 RUN ln -s /minecraft/cfg/banned-ips.json /minecraft/banned-ips.json
 RUN ln -s /minecraft/cfg/banned-players.json /minecraft/banned-players.json
-RUN ln -s /minecraft/cfg/server.properties /minecraft/server.properties
+#RUN ln -s /minecraft/cfg/server.properties /minecraft/server.properties
 RUN ln -s /minecraft/cfg/settings-local.sh /minecraft/settings-local.sh
 RUN chown -R minecraft:minecraft /minecraft
 
