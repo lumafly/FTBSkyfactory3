@@ -16,6 +16,7 @@ RUN mkdir -p /minecraft/cfg
 RUN mkdir -p /minecraft/backups
 RUN curl -SLO https://media.forgecdn.net/files/2787/18/SkyFactory_4_Server_4.1.0.zip
 RUN unzip SkyFactory_4_Server_4.1.0.zip
+RUN mv SkyFactory_4_Server_4.1.0/* .
 RUN echo "eula=true" > /minecraft/eula.txt
 RUN ls
 RUN chmod u+x /minecraft/*.sh
