@@ -1,5 +1,5 @@
 FROM openjdk:alpine
-MAINTAINER Jin Van <usconan@gmail.com>
+MAINTAINER foresterre <garm@ilumeo.com>
 
 ENV SERVER_PORT 25565
 
@@ -14,8 +14,8 @@ RUN adduser -D minecraft && \
     mkdir -p /minecraft/world && \
     mkdir -p /minecraft/cfg && \
     mkdir -p /minecraft/backups &&\
-    curl -SLO http://ftb.cursecdn.com/FTB2/modpacks/FTBPresentsSkyfactory3/3_0_15/FTBPresentsSkyfactory3Server.zip  && \
-    unzip FTBPresentsSkyfactory3Server.zip && \
+    curl -SLO https://media.forgecdn.net/files/2787/18/SkyFactory_4_Server_4.1.0.zip  && \
+    unzip SkyFactory_4_Server_4.1.0.zip && \
     chmod u+x *.sh && \
     echo "eula=true" > /minecraft/eula.txt && \
     echo "[]" > /minecraft/cfg/ops.json && \
@@ -34,7 +34,7 @@ RUN adduser -D minecraft && \
 
 USER minecraft
 
-RUN /minecraft/FTBInstall.sh
+RUN /bin/sh /minecraft/Install.sh
 
 VOLUME ["/minecraft/world"]
 VOLUME ["/minecraft/cfg"]
